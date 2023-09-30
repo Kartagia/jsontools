@@ -1,0 +1,25 @@
+{
+  "name": "@com.kautiainen.antti/jsontools",
+  "version": "1.0.0",
+  "description": "JSON stringifying and parsing tool allowing defining context sensitive reviver and replacer functions and chaining converters",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm publish",
+    "publish": "npm run test && npm publish --access public",
+    "test": "run-script-os",
+    "test:package": "run-script-os",
+    "test:package:win32": "SET NODE_ENV=test && cd package-test && npm run test",
+    "test:package:nix": "export SET NODE_ENV=test && cd package-test && npm run test",
+    "test:mocha": "run-script-os",
+    "test:mocha:win32": "SET NODE_ENV=test && mocha --harmonize",
+    "test:mocha:nix": "export NODE_ENV=test && mocha --harmonize"
+  },
+  "keywords": [
+    "json"
+  ],
+  "author": "Antti Kautiainenn <antti@kautiainen.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "run-script-os": "^1.1.6"
+  }
+}
