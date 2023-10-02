@@ -1,5 +1,5 @@
 {
-  "name": "@com.kautiainen.antti/jsontools",
+  "name": "@com_kautiainen_antti/jsontools",
   "version": "1.0.0",
   "description": "JSON stringifying and parsing tool allowing defining context sensitive reviver and replacer functions and chaining converters",
   "main": "index.js",
@@ -20,6 +20,9 @@
   "author": "Antti Kautiainenn <antti@kautiainen.com>",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.3.10",
+    "local-package-publisher": "^1.0.5",
+    "mocha": "^10.2.0",
     "run-script-os": "^1.1.6"
   }
 }
