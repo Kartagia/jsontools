@@ -87,12 +87,12 @@ export class JSONConverter {
   /**
    * The JSON validator function.
    */
-  #jsonValidate = static.validJSON;
+  #jsonValidate = JSONConverter.validJSON;
 
   /**
    * The validator validating value for this converter.
    */
-  #validator = static.validSource;
+  #validator = JSONConverter.validSource;
 
   /**
    * The JSON reviver used to revive valid values.
@@ -135,8 +135,10 @@ export class JSONConverter {
    * @param {Predicate<TYPE>} [validator] The validator returning true if and only if the stringified
    * value is handled by this converter. Defaults to a predicate accepting all values.
    */
-  constructor({ reviver, replacer, validator, parent, validator = (value) => (true) }) {
-    this.#validator = validator;
+  constructor({ reviver = undefined, replacer = undefined, parent = undefined, validator = undefined, space = undefined } = {}) {
+    if (validator) {
+      this.#validator = validator;
+    }
     this.#parent = parent;
     this.#reviver = reviver;
     this.#replacer = replacer;
@@ -197,9 +199,10 @@ export class JSONConverter {
   parse(source, reviver = undefined) {
     if (this.#jsonValidate(source)) {
       // The current converter handles the value.
+      return JSON.parse(source, reviver || this.reviver);
     } else if (this.#parent) {
       // Let the parent handle it.
-      this.#parent.parse(source, reviver);
+      return this.#parent.parse(source, reviver);
     } else {
       // The value is not handled.
       return source;

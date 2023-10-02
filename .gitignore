@@ -1,1 +1,4 @@
 **/node_modules
+**/.local-pack
+**/.gitmodules
+com_kautiainen_antti-jsontools-1.0.0.tgz
