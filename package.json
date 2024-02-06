@@ -8,8 +8,8 @@
     "publish": "npm run test && npm publish --access public",
     "test": "run-script-os",
     "test:package": "run-script-os",
-    "test:package:win32": "SET NODE_ENV=test && cd package-test && npm run test",
-    "test:package:nix": "export SET NODE_ENV=test && cd package-test && npm run test",
+    "test:package:win32": "SET NODE_ENV=test && cd package-test && npm i ..\\com_kautiainen_antti-jsontools-${version}.tgz && npm run test",
+    "test:package:nix": "export SET NODE_ENV=test && cd package-test && npm i ../com_kautiainen_antti-jsontools-${version}.tgz && npm run test",
     "test:mocha": "run-script-os",
     "test:mocha:win32": "SET NODE_ENV=test && mocha --harmonize",
     "test:mocha:nix": "export NODE_ENV=test && mocha --harmonize"
